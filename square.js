@@ -1,9 +1,9 @@
 class Square extends GameObject {
-	constructor(canvasContext, position, velocity, color) {
+	constructor(canvasContext, position, velocity, width = 50, height = 50, color = "black") {
 		super(canvasContext, position, velocity);
 
-		this.width = 50;
-		this.height = 50;
+		this.width = width;
+		this.height = height;
 
 		this.color = color;
 	}
