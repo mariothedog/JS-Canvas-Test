@@ -1,6 +1,6 @@
 class GameObject {
-	constructor(ctx, position, velocity) {
-		this.ctx = ctx;
+	constructor(canvasContext, position, velocity) {
+		this.canvasContext = canvasContext;
 		this.position = position;
 		this.velocity = velocity;
 	}

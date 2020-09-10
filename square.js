@@ -1,6 +1,6 @@
 class Square extends GameObject {
-	constructor(ctx, position, velocity, color) {
-		super(ctx, position, velocity);
+	constructor(canvasContext, position, velocity, color) {
+		super(canvasContext, position, velocity);
 
 		this.width = 50;
 		this.height = 50;
@@ -14,7 +14,7 @@ class Square extends GameObject {
 	}
 
 	draw() {
-		this.ctx.fillStyle = this.color;
-		this.ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+		this.canvasContext.fillStyle = this.color;
+		this.canvasContext.fillRect(this.position.x, this.position.y, this.width, this.height);
 	}
 }
