@@ -1,6 +1,5 @@
 function main() {
 	const canvas = document.getElementById("game-canvas");
-	console.log(canvas.getContext);
 	if (!canvas.getContext) {
 		console.error("ERROR - Browser does not support canvas");
 		return;
