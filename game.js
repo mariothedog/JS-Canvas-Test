@@ -11,6 +11,9 @@ class Game {
 
 		this.gameObjects = [];
 
+		this.playerGravity = 1500;
+		this.playerJumpSpeed = 480;
+
 		this.player = new Square(canvasContext, Vector2.zero, Vector2.zero);
 		this.gameObjects.push(this.player);
 	}
@@ -28,7 +31,7 @@ class Game {
 	}
 
 	update(deltaTimeSec) {
-		this.player.velocity.y += 1500 * deltaTimeSec;
+		this.player.velocity.y += this.playerGravity * deltaTimeSec;
 
 		for (let i = 0; i < this.gameObjects.length; i++) {
 			this.gameObjects[i].updatePosition(this.deltaTimeSec);
@@ -57,6 +60,6 @@ class Game {
 	}
 
 	onJumpPress(keyboardEvent) {
-		this.player.velocity.y = -480;
+		this.player.velocity.y = -this.playerJumpSpeed;
 	}
 }
