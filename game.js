@@ -3,11 +3,16 @@ class Game {
 		this.canvas = canvas;
 		this.canvasContext = canvasContext;
 
+		new Input([Keys.UP_ARROW, Keys.KEY_W, Keys.SPACE], "keydown", (keyboardEvent) => this.onJumpPress(keyboardEvent), true);
+
 		this.timeStampLastFrame = 0;
 		this.deltaTimeSec = 0;
 		this.calculatedFPS = 0;
 
 		this.gameObjects = [];
+
+		this.player = new Square(canvasContext, new Vector2(0, 0), new Vector2(0, 0));
+		this.gameObjects.push(this.player);
 	}
 
 	gameLoop(timeStamp) {
@@ -23,8 +28,10 @@ class Game {
 	}
 
 	update(deltaTimeSec) {
+		this.player.velocity.y += 1500 * deltaTimeSec;
+
 		for (let i = 0; i < this.gameObjects.length; i++) {
-			this.gameObjects[i].update(this.deltaTimeSec);
+			this.gameObjects[i].updatePosition(this.deltaTimeSec);
 		}
 	}
 
@@ -47,5 +54,9 @@ class Game {
 		this.canvasContext.font = "25px Arial";
 		this.canvasContext.fillStyle = "black";
 		this.canvasContext.fillText("FPS: " + this.calculatedFPS, 10, 30);
+	}
+
+	onJumpPress(keyboardEvent) {
+		this.player.velocity.y = -450;
 	}
 }

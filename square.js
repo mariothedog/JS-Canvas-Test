@@ -8,7 +8,7 @@ class Square extends GameObject {
 		this.color = color;
 	}
 
-	update(secondsPassed) {
+	updatePosition(secondsPassed) {
 		this.position.x += this.velocity.x * secondsPassed;
 		this.position.y += this.velocity.y * secondsPassed;
 	}

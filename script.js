@@ -9,14 +9,5 @@ function main() {
 
 	const game = new Game(canvas, canvasContext);
 
-	game.gameObjects.push(
-		new Square(
-			canvasContext,
-			new Vector2(0, 0),
-			new Vector2(100, 100),
-			"green",
-		),
-	);
-
 	window.requestAnimationFrame((timeStamp) => game.gameLoop(timeStamp));
 }
