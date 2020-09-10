@@ -57,6 +57,6 @@ class Game {
 	}
 
 	onJumpPress(keyboardEvent) {
-		this.player.velocity.y = -450;
+		this.player.velocity.y = -480;
 	}
 }
