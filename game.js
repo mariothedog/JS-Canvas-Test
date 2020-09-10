@@ -11,7 +11,7 @@ class Game {
 
 		this.gameObjects = [];
 
-		this.player = new Square(canvasContext, new Vector2(0, 0), new Vector2(0, 0));
+		this.player = new Square(canvasContext, Vector2.zero, Vector2.zero);
 		this.gameObjects.push(this.player);
 	}
 
