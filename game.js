@@ -13,9 +13,11 @@ class Game {
 
 		this.playerGravity = 1500;
 		this.playerJumpSpeed = 480;
+		this.scrollSpeed = 100;
 
-		this.player = new Square(canvasContext, Vector2.zero, Vector2.zero);
-		this.gameObjects.push(this.player);
+		this.camera = this.addGameObject(new Camera(canvasContext, Vector2.zero, new Vector2(this.scrollSpeed, 0)));
+
+		this.player = this.addGameObject(new Square(canvasContext, new Vector2(180, 0), new Vector2(-this.scrollSpeed, 0)));
 	}
 
 	gameLoop(timeStamp) {
@@ -42,10 +44,15 @@ class Game {
 		this.clearCanvas();
 
 		for (let i = 0; i < this.gameObjects.length; i++) {
-			this.gameObjects[i].draw();
+			this.gameObjects[i].draw(this.camera.position);
 		}
 
 		this.drawFPS();
+	}
+
+	addGameObject(gameObject) {
+		this.gameObjects.push(gameObject);
+		return gameObject;
 	}
 
 	clearCanvas() {

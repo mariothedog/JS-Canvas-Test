@@ -8,4 +8,13 @@ class GameObject {
 			throw new Error("Cannot instantiate abstract class");
 		}
 	}
+
+	updatePosition(secondsPassed) {
+		this.position.x += this.velocity.x * secondsPassed;
+		this.position.y += this.velocity.y * secondsPassed;
+	}
+
+	draw(posOffset) {
+		return;
+	}
 }

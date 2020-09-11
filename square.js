@@ -8,13 +8,9 @@ class Square extends GameObject {
 		this.color = color;
 	}
 
-	updatePosition(secondsPassed) {
-		this.position.x += this.velocity.x * secondsPassed;
-		this.position.y += this.velocity.y * secondsPassed;
-	}
-
-	draw() {
+	draw(posOffset) {
 		this.canvasContext.fillStyle = this.color;
-		this.canvasContext.fillRect(this.position.x, this.position.y, this.width, this.height);
+		const pos = new Vector2(this.position.x + posOffset.x, this.position.y + posOffset.y);
+		this.canvasContext.fillRect(pos.x, pos.y, this.width, this.height);
 	}
 }
